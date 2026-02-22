@@ -9,6 +9,12 @@ tmp/
 src/main/resources/application.yml
 src/main/resources/mcp-servers.json
 
+### Kiro ###
+.kiro/
+
+### 文档（内部使用）###
+docs/
+
 ### STS ###
 .apt_generated
 .classpath
