@@ -1,0 +1,49 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/zcw_ai_agent
+    username: your_username
+    password: your_password
+  application:
+    name: learning-ai-agent
+  ai:
+    mcp:
+      client:
+        config-file: classpath:mcp-servers.json
+    vectorstore:
+      pgvector:
+        index-type: hnsw
+        dimension: 1536
+        distance-type: cosine_distance
+        max-document-batch-size: 1000
+    dashscope:
+      api-key: your_dashscope_api_key
+      chat:
+        options:
+          model: qwen-plus
+server:
+  port: 8123
+  servlet:
+    context-path: /api
+
+# springdoc-openapi
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.zpark.learningagent.controller
+
+# knife4j
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+
+# searchApi (用于网络搜索功能)
+search-api:
+  api-key: your_search_api_key
